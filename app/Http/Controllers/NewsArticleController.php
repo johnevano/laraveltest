@@ -72,7 +72,7 @@ class NewsArticleController extends Controller
      */
     public function edit($id)
     {
-        $newsarticles=NewsArticle::find($id);
+        $newsarticle=NewsArticle::find($id);
    return view('newsarticles.edit',compact('newsarticle'));
    
    

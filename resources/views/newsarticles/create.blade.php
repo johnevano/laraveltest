@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-
+<a href="{{ route('newsarticles.index') }}" class="btn btn-info">Back to all Articles</a>
 <h1>Add a New News Article</h1>
 <hr>
 {!! Form::open([
