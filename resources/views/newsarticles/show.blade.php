@@ -3,6 +3,7 @@
 @section('content')
 <a href="{{ route('newsarticles.index') }}" class="btn btn-info">Back to all Articles</a>
 <h1>{{ $newsarticle->title }}</h1>
+<p><em>{{ $newsarticle->created_at}}</em></p>
 <hr>
 <div class="col-md-4">
 <img src="{{ $newsarticle->photo_url}}" class="img-responsive" alt="{{ $newsarticle->title }}"/>
