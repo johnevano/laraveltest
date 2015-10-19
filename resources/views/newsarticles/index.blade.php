@@ -57,6 +57,6 @@ jQuery(document).ready(function($) {
      </tbody>
 
  </table>
- {!! $newsarticles->render() !!}
+ {!! str_replace('/?', '?', $newsarticles->render()) !!}
 @endsection
 @stop

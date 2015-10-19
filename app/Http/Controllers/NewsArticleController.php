@@ -16,7 +16,9 @@ class NewsArticleController extends Controller
      */
     public function index()
     {
+		
          $newsarticles = DB::table('news_articles')->paginate(15);
+		  $newsarticles->setPath('/laravel/public/newsarticles');
         return view('newsarticles.index',compact('newsarticles'));
     }
 	 public function viewall()
@@ -44,14 +46,13 @@ class NewsArticleController extends Controller
     public function store(Request $request)
     {
        $newsarticle=Request::all();
-		if($newsarticle->hasFile('photo_url')) {
+		//if($newsarticle->hasFile('photo_url')) {
             $file = Input::file('photo_url');
             $name = time(). '-' .$file->getClientOriginalName();
-            $photo_url->filePath = $name;
+           
 
             $file->move(public_path().'/images/', $name);
-        }
-        $photo_url->save();
+       // }
    NewsArticle::create($newsarticle);
    return redirect('newsarticles');
    

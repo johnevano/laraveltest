@@ -13,7 +13,8 @@
 <h1>Add a New News Article</h1>
 <hr>
 {!! Form::open([
-    'route' => 'newsarticles.store'
+    'route' => 'newsarticles.store',
+	'files' => true
 ]) !!}
 
 <div class="form-group">

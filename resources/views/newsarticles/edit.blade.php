@@ -10,7 +10,7 @@
 </script>
 <a href="{{ route('newsarticles.index') }}" class="btn btn-info">Back to all Articles</a>
     <h1>Update News Article</h1>
-    {!! Form::model($newsarticle,['method' => 'PATCH','route'=>['newsarticles.update',$newsarticle->id]]) !!}
+    {!! Form::model($newsarticle,['method' => 'PATCH','route'=>['newsarticles.update',$newsarticle->id],'files' => true]) !!}
     <div class="form-group">
         {!! Form::label('Title', 'Title:') !!}
         {!! Form::text('title',null,array('required', 
