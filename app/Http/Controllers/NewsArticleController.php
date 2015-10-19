@@ -58,9 +58,10 @@ class NewsArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($title_slug)
     {
-        //
+       $newsarticle = NewsArticle::where('title_slug','=', $title_slug)->first();
+    return view('newsarticles.show', compact('newsarticle'));
     }
 
     /**
@@ -71,7 +72,7 @@ class NewsArticleController extends Controller
      */
     public function edit($id)
     {
-        $user=User::find($id);
+        $newsarticles=NewsArticle::find($id);
    return view('newsarticles.edit',compact('newsarticle'));
    
    

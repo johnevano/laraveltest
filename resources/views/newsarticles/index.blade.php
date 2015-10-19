@@ -21,7 +21,7 @@
              <td>{{ $newsarticle->id }}</td>
              <td>{{ $newsarticle->title }}</td>
 			  <td><img src="{{ $newsarticle->photo_url }}" alt="{{ $newsarticle->title }}" width="100" /></td>
-			  <td><a href="{{route('newsarticles.show',$newsarticle->id)}}" class="btn btn-warning">View</a></td>
+			  <td><a href="{{route('newsarticles.show',$newsarticle->title_slug)}}" class="btn btn-warning">View</a></td>
 			  <td><a href="{{route('newsarticles.edit',$newsarticle->id)}}" class="btn btn-warning">Edit</a></td>
              <td>
              {!!Form::open(array('method'=>'DELETE', 'route' => array('newsarticles.destroy', $newsarticle->id)))!!} 
