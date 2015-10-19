@@ -16,4 +16,4 @@
 });
 /*/
 Route::resource('users','UserController');
-Route::delete('users/{id}', ['uses' => 'UsersController@destroy', 'as'=>'users.destroy',]);
+Route::delete('users/{id}', ['uses' => 'UserController@destroy', 'as'=>'users.destroy',]);
