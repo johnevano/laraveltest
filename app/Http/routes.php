@@ -20,3 +20,4 @@ Route::resource('newsarticles','NewsArticleController');
 Route::delete('users/{id}', ['uses' => 'UserController@destroy', 'as'=>'users.destroy',]);
 Route::delete('newsarticles/{id}', ['uses' => 'NewsArticleController@destroy', 'as'=>'newsarticles.destroy',]);
 Route::get('newsarticles/{title_slug}', 'NewsArticleController@show');
+Route::get('newsarticles/viewall', 'NewsArticleController@viewall');

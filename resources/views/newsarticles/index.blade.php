@@ -3,7 +3,12 @@
 @section('content')
  <h1>Test News Articles</h1>
  <hr>
- <a href="{{route('newsarticles.create')}}" class="btn btn-default">Create Article</a>
+ <div class="row">
+	<div class="col-md-2"><a href="{{route('newsarticles.create')}}" class="btn btn-default">Create Article</a>
+	</div>
+	<div class="col-md-2"><a href="" class="btn btn-default">View Articles</a>
+	</div>
+</div>
  <hr>
  <table class="table table-striped table-bordered table-hover">
      <thead>

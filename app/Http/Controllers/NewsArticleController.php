@@ -19,6 +19,11 @@ class NewsArticleController extends Controller
          $newsarticles = DB::table('news_articles')->paginate(15);
         return view('newsarticles.index',compact('newsarticles'));
     }
+	 public function viewall()
+    {
+         $newsarticles = DB::table('news_articles')->paginate(15);
+        return view('newsarticles.viewall',compact('newsarticles'));
+    }
 
     /**
      * Show the form for creating a new resource.
