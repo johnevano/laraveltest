@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use Request;
+use App\NewsArticle;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
+use DB;
 
-class NewsArticle extends Controller
+class NewsArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,8 @@ class NewsArticle extends Controller
      */
     public function index()
     {
-        //
+         $newsarticles = DB::table('news_articles')->paginate(15);
+        return view('newsarticles.index',compact('newsarticles'));
     }
 
     /**
@@ -23,9 +25,9 @@ class NewsArticle extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+   public function create()
     {
-        //
+       return view('newsarticles.create');
     }
 
     /**
@@ -36,7 +38,18 @@ class NewsArticle extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $newsarticle=Request::all();
+		if($newsarticle->hasFile('photo_url')) {
+            $file = Input::file('photo_url');
+            $name = time(). '-' .$file->getClientOriginalName();
+            $photo_url->filePath = $name;
+
+            $file->move(public_path().'/images/', $name);
+        }
+        $photo_url->save();
+   NewsArticle::create($newsarticle);
+   return redirect('newsarticles');
+   
     }
 
     /**
@@ -58,7 +71,10 @@ class NewsArticle extends Controller
      */
     public function edit($id)
     {
-        //
+        $user=User::find($id);
+   return view('newsarticles.edit',compact('newsarticle'));
+   
+   
     }
 
     /**
@@ -70,7 +86,10 @@ class NewsArticle extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $newsarticleUpdate=Request::all();
+   $newsarticle=User::find($id);
+   $newsarticle->update($newsarticleUpdate);
+   return redirect('newsarticles');
     }
 
     /**
@@ -81,6 +100,7 @@ class NewsArticle extends Controller
      */
     public function destroy($id)
     {
-        //
+        NewsArticle::find($id)->delete();
+   return redirect('newsarticles');
     }
 }
